@@ -6,7 +6,6 @@ console.log('INIZIO PRIMO ESERCIZIO');
  */
 
 var parolaUtente = prompt('Inserisci una parola');
-parolaUtente = parolaUtente.charAt(0).toLocaleLowerCase() + parolaUtente.slice(1);
 var parolaAlContrario = invertiParola(parolaUtente);
 
 console.log(parolaUtente);
@@ -39,7 +38,7 @@ console.log('INIZIO SECONDO ESERCIZIO');
  * Sommiamo i due numeri
  * Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
  * Dichiariamo chi ha vinto.
-
+ */
 
 var sceltaUtente = prompt('Pari o dispari?');
 console.log('Hai scelto ' + sceltaUtente);
@@ -57,9 +56,9 @@ console.log('Il totale è ' + totale);
 
 
 if (totale % 2 == 0) {
-    risultato = 'Pari';
+    risultato = 'pari';
 } else {
-    risultato = 'Dispari';
+    risultato = 'dispari';
 }
 
 console.log(risultato);
@@ -75,4 +74,3 @@ function giocataCpu() {
 
     return numeroCpu;
 }
- */
