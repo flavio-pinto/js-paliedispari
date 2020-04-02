@@ -2,7 +2,7 @@
  * Chiedere all’utente di inserire una parola
  * Creare una funzione per capire se la parola inserita è palindroma
  */
-
+/*
 var parolaUtente = prompt('Inserisci una parola');
 var parolaAlContrario = invertiParola(parolaUtente);
 
@@ -24,12 +24,7 @@ function invertiParola(parola) {
 
     return capovolgi;
 }
-
-
-
-
-
-
+*/
 
 
 /**
@@ -39,3 +34,38 @@ function invertiParola(parola) {
  * Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
  * Dichiariamo chi ha vinto.
  */
+
+var sceltaUtente = prompt('Pari o dispari?');
+console.log('Hai scelto ' + sceltaUtente);
+
+var numeroUtente = parseInt(prompt('Inserisci un numero da 1 a 5'));
+var numeroCpu = giocataCpu();
+var risultato = '';
+
+console.log('Tu hai puntato ' + numeroUtente);
+console.log('La cpu ha puntato ' + numeroCpu);
+
+var totale = numeroUtente + numeroCpu;
+
+console.log('Il totale è ' + totale);
+
+
+if (totale % 2 == 0) {
+    risultato = 'Pari';
+} else {
+    risultato = 'Dispari';
+}
+
+console.log(risultato);
+
+if (sceltaUtente == risultato) {
+    console.log('Complimenti, hai vinto!');
+} else {
+    console.log('Mi spiace, hai perso!');
+}
+
+function giocataCpu() {
+    var numeroCpu = Math.floor(Math.random() * (5 - 1)) + 1;
+
+    return numeroCpu;
+}
