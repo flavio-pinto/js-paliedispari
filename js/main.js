@@ -1,15 +1,18 @@
+console.log('INIZIO PRIMO ESERCIZIO');
+
 /**
  * Chiedere all’utente di inserire una parola
  * Creare una funzione per capire se la parola inserita è palindroma
  */
-/*
+
 var parolaUtente = prompt('Inserisci una parola');
+parolaUtente = parolaUtente.charAt(0).toLocaleLowerCase() + parolaUtente.slice(1);
 var parolaAlContrario = invertiParola(parolaUtente);
 
 console.log(parolaUtente);
 console.log(parolaAlContrario);
 
-if (parolaUtente.toLowerCase == parolaAlContrario.toLowerCase) {
+if (parolaUtente == parolaAlContrario) {
     console.log('La parola è un palindromo');
 } else {
     console.log('La parola non è un palindromo');
@@ -24,7 +27,10 @@ function invertiParola(parola) {
 
     return capovolgi;
 }
-*/
+
+
+console.log('INIZIO SECONDO ESERCIZIO');
+
 
 
 /**
@@ -33,7 +39,7 @@ function invertiParola(parola) {
  * Sommiamo i due numeri
  * Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
  * Dichiariamo chi ha vinto.
- */
+
 
 var sceltaUtente = prompt('Pari o dispari?');
 console.log('Hai scelto ' + sceltaUtente);
@@ -69,3 +75,4 @@ function giocataCpu() {
 
     return numeroCpu;
 }
+ */
