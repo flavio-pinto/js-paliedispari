@@ -1,11 +1,12 @@
-console.log('INIZIO PRIMO ESERCIZIO');
+console.log('**********INIZIO PRIMO ESERCIZIO**********');
 
 /**
  * Chiedere all’utente di inserire una parola
  * Creare una funzione per capire se la parola inserita è palindroma
  */
 
-var parolaUtente = prompt('Inserisci una parola');
+var parolaUtente = prompt('Inserisci una parola').trim();
+parolaUtente = parolaUtente.toLowerCase();
 var parolaAlContrario = invertiParola(parolaUtente);
 
 console.log(parolaUtente);
@@ -28,9 +29,7 @@ function invertiParola(parola) {
 }
 
 
-console.log('INIZIO SECONDO ESERCIZIO');
-
-
+console.log('**********INIZIO SECONDO ESERCIZIO**********');
 
 /**
  * L’utente sceglie pari o dispari e un numero da 1 a 5
@@ -40,37 +39,53 @@ console.log('INIZIO SECONDO ESERCIZIO');
  * Dichiariamo chi ha vinto.
  */
 
-var sceltaUtente = prompt('Pari o dispari?');
+// Scelta pari o dispari
+var sceltaUtente = prompt('Pari o dispari?').toLowerCase();
 console.log('Hai scelto ' + sceltaUtente);
 
-var numeroUtente = parseInt(prompt('Inserisci un numero da 1 a 5'));
-var numeroCpu = giocataCpu();
-var risultato = '';
-
-console.log('Tu hai puntato ' + numeroUtente);
-console.log('La cpu ha puntato ' + numeroCpu);
-
-var totale = numeroUtente + numeroCpu;
-
-console.log('Il totale è ' + totale);
-
-
-if (totale % 2 == 0) {
-    risultato = 'pari';
-} else {
-    risultato = 'dispari';
+// VALIDAZIONE: Forza l'utente a scrivere nient'altro che "pari" o "dispari"
+while (sceltaUtente !== 'pari' && sceltaUtente !== 'dispari') {
+    sceltaUtente = prompt('Per favore, scegli tra pari e dispari!').toLowerCase();
 }
 
+// Inserimento numero da 1 a 5
+var numeroUtente = parseInt(prompt('Inserisci un numero da 1 a 5'));
+console.log('Il tuo numero è ' + numeroUtente);
+
+// VALIDAZIONE: impedisci all'utente di scrivere numeri fuori dal range 1-5 o di inserire dati non numerici
+while ((numeroUtente < 1 || numeroUtente > 5) || isNaN(numeroUtente)) {
+    numeroUtente = parseInt(prompt('Per favore, inserisci solo un numero da 1 a 5!'))
+}
+
+// Generazione numero random da 1 a 5 grazie alla funzione
+var numeroCpu = numeroRandom(1, 5);
+console.log('Il numero della cpu è ' + numeroCpu);
+
+// Ottenere il totale
+var totale = numeroUtente + numeroCpu;
+console.log('La somma dei due numeri è ' + totale);
+
+// Ottenere il risultato
+var risultato = controlloPariDispari(totale);
 console.log(risultato);
 
+// Stabilire il vincitore
 if (sceltaUtente == risultato) {
     console.log('Complimenti, hai vinto!');
 } else {
     console.log('Mi spiace, hai perso!');
 }
 
-function giocataCpu() {
-    var numeroCpu = Math.floor(Math.random() * (5 - 1)) + 1;
+// Funzione per ottenere numero random
+function numeroRandom(min, max) {
+    return Math.floor(Math.random() * (max-min + 1)) + min;
+}
 
-    return numeroCpu;
+// Funzione controllo pari o dispari
+function controlloPariDispari(numero) {
+    if(numero % 2 == 0) {
+        return 'pari';
+    }
+
+    return 'dispari'
 }
